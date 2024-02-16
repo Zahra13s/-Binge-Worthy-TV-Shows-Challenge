@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/587/original/hod_logo.png?1708016652">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>House of the Dragon</title>
+</head>
+<style>
+    @import url(https://db.onlinewebfonts.com/c/97c4b25dc74e0ab045154e75a8fdd69d?family=Game+of+Thrones);
+:root {
+    --primary-color: #D8AD82;
+    --general-font: "Cinzel Decorative", serif;
+}
+
+*{
+    background-color: #000000;
+    margin: 0;
+    font-family: var(--general-font);
+}
+
+/*hero*/
+.navigation {
+    position: absolute;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 10px;
+    color: var(--primary-color);
+    margin-left: 10px;
+  }
+  
+  .navigation li{
+    margin-right: 50px;
+    text-decoration: none; 
+  }
+  
+  .navigation li {
+    display: inline-block;
+    position: relative;
+    color: var(--primary-color);
+  }
+  
+  .navigation li a {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .navigation li::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .navigation li:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+
+.hero_section{
+    display: flex;
+    color: var(--primary-color);
+    height: 742px;
+}
+
+.hero_section .info,.hero_section .image{
+    flex: 1;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+
+.logo_header{
+    width: 60%;
+}
+
+.info ul{
+    display: flex;
+    list-style: none;
+}
+
+.info li{
+    padding-right: 25px;
+}
+
+.info p{
+    font-size: 14px;
+}
+
+.image {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: auto; 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255,255,255,0), rgb(0, 0, 0));
+    z-index: 2;
+}
+
+.overlay1 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgb(0, 0, 0));
+    z-index: 2;
+}
+
+
+.hero_image {
+    width: 100%;
+    height: 742px;
+    display: block;
+    z-index: 1;
+}
+
+.watch_trailer, 
+.Read_more {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    color: var(--primary-color);
+    background-color: va(--primary-color);
+}
+
+.watch_trailer a, 
+.Read_more a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.watch_trailer:active, .Read_more:active{
+    background-color: var(--primary-color);
+}
+/*quote*/
+.quote{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+
+
+.rhaenyra_targaryen, .alicent_hightower{
+    width: 200px;
+    margin: auto;
+    opacity: 1;
+}
+
+/*about*/
+.about_header,
+.cast_header {
+    color: var(--primary-color);
+    font-family: "Game of Thrones";
+    margin: 0;
+    text-align: center;
+    padding: 15px;
+}
+
+.about {
+    height: 675px;
+    display: flex;
+}
+
+.about_image,
+.about_info {
+    flex: 1;
+}
+
+.about_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about_info {
+    padding: 50px;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about_info p {
+    font-size: 18px;
+    text-align: justify;
+    color: var(--primary-color);
+    margin-top: 95px;
+}
+
+.about_img {
+    height: 500px;
+}
+
+.about_info {
+    position: relative;
+    padding-top: 50px;
+}
+
+.about_image {
+  position: relative;
+}
+
+.about_img {
+  display: block;
+  position: relative;
+  z-index: 1; 
+}
+
+.top_corner,
+.bottom_corner {
+  background-color: transparent;
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  z-index: 2;
+}
+
+.top_corner {
+  top: 0;
+  left: 0;
+  margin-top: -35px;
+  margin-left: -35px;
+}
+
+.bottom_corner {
+  bottom: 0;
+  right: 0;
+  margin-bottom: -35px;
+  margin-right: -35px;
+}
+
+
+.info_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, transparent, #000000), linear-gradient(to bottom, transparent, #000000), url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/581/original/about_background.jpg?1708016589");
+    background-size: cover;
+    opacity: 1;
+}
+
+.about_info p {
+    position: relative;
+    z-index: 1;
+    color: var(--primary-color);
+    background-color: transparent;
+}
+
+/* cast */
+.cast {
+    padding: 25px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  
+  .cast::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  .img__wrap {
+    position: relative;
+    box-shadow: 2px 2px 15px rgba(155, 62, 13, 0.5);
+    height: 290px;
+    width: 230px;
+    margin: 15px;
+    display: inline-block;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.img__img {
+    height: 290px;
+    width: 230px;
+    transition: transform 0.3s ease;
+}
+
+.img__wrap:hover .img__img {
+    transform: scale(1.1);
+}
+
+.img__description {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    transform: translateY(100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.3s ease;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgb(0, 0, 0));
+}
+
+.img__wrap:hover .img__description {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.img__description p {
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+}
+
+
+  /*episodes*/
+  .episode_guide{
+    margin: 0;
+    text-align: center;
+    font-family: "Game of Thrones";
+    color: var(--primary-color);
+  }
+
+  .episodes{
+    padding: 25px;
+  }
+
+  .episode_header,
+  .episodes,
+  .episodes p{
+    margin: 0;
+  }
+
+  .each_episode
+  {
+    position: relative;
+    display: flex;
+    height: 350px;
+  }
+
+  .episode_description{
+    flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+  }
+
+  .episode_description p{
+    text-align: justify;
+  }
+  .each_episode h3{
+    font-size: 20px;
+    color: var(--primary-color);
+  }
+
+  .each_episode h5{
+    color: var(--primary-color);
+  }
+
+  .each_episode p{
+    font-family: "Prata", serif;
+    font-size: 18px;
+    color: var(--primary-color);
+  }
+
+  .episode_trailer{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .episode_trailer img{
+    width: 50%;
+  }
+
+  /*foot nav*/
+  .foot_nav{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+
+  .foot_nav li{
+    margin: 25px;
+    color: var(--primary-color);
+  }
+
+  .foot_nav li a {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+</style>
+<body>
+    <ul class="navigation">
+        <li><img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/587/original/hod_logo.png?1708016652" alt="" width="50px"></li>
+        <li><a href="#hero_sec">Home</a></li>
+        <li><a href="#about_sec">About</a></li>
+        <li><a href="#cast_id">Cast</a></li>
+        <li><a href="#trailar_sec">Trailer</a></li>
+    </ul>
+    <div class="hero_section" id="hero_sec">
+        <div class="info">
+            <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/588/original/logo_header.png?1708016662" alt="" class="logo_header">
+          <ul class="details">
+                <li class="me-3"><i class="fa-solid fa-star text-warning me-2"></i>8.4/10</li>
+                <li class="me-3"><i class="fa-solid fa-film text-warning me-2"></i>TV series</li>
+                <li class="me-3"><i class="fa-solid fa-clock text-warning me-2"></i>2022</li>
+                <li class="me-3"><i class="fa-solid fa-ban text-danger me-2"></i>18+</li>
+          </ul>
+          <p>An internal succession war within House Targaryen at the height of its power, </br>172 years before the birth of Daenerys Targaryen.</p>
+         
+          <div class="hero_button">
+                <button class="watch_trailer"><i class="fa-regular fa-circle-play me-2"></i> <a href="https://youtu.be/FnUECmSxN8I?si=U4jMLZPPn-_xqcrQ" target="_blank">Watch Trailer</a></button>
+                <button class="Read_more"><i class="fa-regular fa-compass me-2"></i> <a href="https://www.hbo.com/house-of-the-dragon" target="_blank">Read more</a></button>
+            </div>
+        </div>
+        <div class="image">
+            <div class="overlay"></div>
+            <div class="overlay1"></div>
+            <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/586/original/hero_image.jpg?1708016637" alt="" class="hero_image">
+        </div>
+    </div>
+  
+    <!--about-->
+    <h1 class="about_header" id="about_sec">About</h1>
+    <div class="about" id="about">
+        <div class="about_image">
+            <div class="about_img">
+                <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/579/original/1.png?1708016572" alt="" class="top_corner">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/582/original/about_image.jpg?1708016599" alt="" class="about_img">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/580/original/2.png?1708016580" alt="" class="bottom_corner">
+            </div>
+        </div>
+        <div class="about_info">
+            <div class="info_background"></div>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Based on George R.R. Martin’s Fire & Blood, House of the Dragon is set 200 years before the events of Game of Thrones and tells the story of House Targaryen.
+        
+                House of the Dragon stars Matt Smith, Olivia Cooke, Emma D’Arcy, Eve Best, Steve Toussaint, Fabien Frankel, Ewan Mitchell, Tom Glynn-Carney, Sonoya Mizuno, Rhys Ifans, Harry Collett, Bethany Antonia, Phoebe Campbell, Phia Saban, Jefferson Hall, and Matthew Needham. Additional Season 2 cast includes: Abubakar Salim, Gayle Rankin, Freddie Fox, Simon Russell Beale, Clinton Liberty, Jamie Kenna, Kieran Bew, Tom Bennett, Tom Taylor, and Vincent Regan.
+        
+                Co-creator/executive producer, George R.R. Martin; co-creator/showrunner/executive producer, Ryan Condal; executive producers, Sara Hess, Alan Taylor, Melissa Bernstein, Kevin de la Noy, Loni Peristere, and Vince Gerardis. Based on George R.R. Martin’s Fire & Blood.
+            </p>
+        </div>
+    </div>
+    <!--cast-->
+    <h1 class="cast_header" id="cast_id">Cast</h1>
+   <div class="cast" id="slider">
+    <!--1-->
+    <div class="img__wrap">
+        <img class="img__img" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/589/original/rhaenyra.png?1708016676" />
+        <div class="img__description">
+            <p>Rhaenyra Targeryen</br>Emma D'Arcy</p>
+        </div>
+      </div>  
+          <!--1_1-->
+    <div class="img__wrap">
+        <img class="img__img" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/593/original/young_rhaenyra.png?1708016966" />
+        <div class="img__description">
+            <p>Rhaenyra Targeryen</br>Milly Alcock</p>
+        </div>
+      </div> 
+        <!--2-->
+    <div class="img__wrap">
+        <img class="img__img" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/585/original/daemon.jpg?1708016626" />
+        <div class="img__description">
+            <p>Daemon Targeryen</br>Matt Smith</p>
+        </div>
+      </div>   
+        <!--3-->
+    <div class="img__wrap">
+        <img class="img__img" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/583/original/alicent.png?1708016607" />
+        <div class="img__description">
+            <p>Alicent Hightower</br>Olivia Cooke</p>
+        </div>
+      </div>    
+        <!--3_3-->
+    <div class="img__wrap">
+        <img class="img__img" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/594/original/young_alicent.png?1708017019" />
+        <div class="img__description">
+            <p>Alicent Hightower</br>Emily Carey</p>
+        </div>
+      </div>    
+        <!--4-->
+    <div class="img__wrap">
+        <img class="img__img" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/592/original/viserys.png?1708016706" />
+        <div class="img__description">
+            <p>King viserys</br>Paddy Considine</p>
+        </div>
+      </div>       
+   </div>
+   
+   <!--episodes-->
+   <h3 class="episode_guide" id="trailar_sec">Episodes Guide</h3>
+   <div class="episodes">
+    <!--1-->
+        <div class="each_episode">
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning text-warning"></i>Episode 1 &#11049; The Heirs of the Dragon </h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>8.7/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>King Viserys I holds a tournament to celebrate the birth of his second child. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rhaenyra welcomes her Uncle Daemon back to the Red Keep.</p>
+            </div>
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YB5WFSQUOx0?si=qhij9Zjlli45gLHw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>              
+        </div>
+        <!--2-->
+        <div class="each_episode">
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/OcUmLlopkdM?si=c0QPIoH5ZFD4qpCM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div> 
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning"></i>Episode 2 &#11049; The Rogue Prince</h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>8.3/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>Following the death of Queen Aemma, a weakened Viserys Targaryen agrees to &nbsp;&nbsp;&nbsp;&nbsp;take a new wife. Meanwhile, Daemon ignores Lord Corlys' concerns about the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;conflicts in the Stepstones and refuses a marriage proposal.</p>
+            </div>       
+        </div>
+        <!--3-->
+        <div class="each_episode">
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning"></i>Episode 3 &#11049; Second of His Name</h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>8.7/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>Daemon and Lord Corlys Velaryon travel to the Stepstones to battle the &nbsp;&nbsp;&nbsp;Crabfeeder. Meanwhile, everyone in the realm celebrates the Aegon's second &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nameday.</p>
+            </div>
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/f2QWxqNOtJg?si=7Leki02qvcGNcnND" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>        
+        </div>
+        <!--4-->
+        <div class="each_episode">
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0YOl7SLjnpw?si=SxnpU_1TWF1CIGrR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>  
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning"></i>Episode 4 &#11049; King of the Narrow Sea</h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>8.4/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>After conquering all but two of the islands, Daemon declares himself King of the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stepstones and the Narrow sea, being crowned by Corlys the Sea Snake.</p>
+            </div>
+        </div>
+        <!--5-->
+        <div class="each_episode">
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning"></i>Episode 5 &#11049; We Light the Way</h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>8.8/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>Daemon visits his wife in the Vale, Viserys and Rhaenyra broker agreements with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the Valeryons, and Alicent seeks the truth about the princess.</p>
+            </div>
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/r2Zl7OrXxOA?si=PejJHLTpqXQAUwQJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>            
+        </div>
+        <!--6-->
+        <div class="each_episode">
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/A5U51xGH3Ic?si=lSgcBz8JXHpnrALO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>  
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning"></i>Episode 6 &#11049;  The Princess and the Queen</h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>8.0/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>Ten years pass, and Princess Rhaenyra struggles to cope with Alicent's endless &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speculation about her children. Meanwhile, Prince Daemon and Laena Velaryon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are consider a certain offer in Pentos.</p>
+            </div>      
+        </div>
+        <!--7-->
+        <div class="each_episode">
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning"></i>Episode 7 &#11049; Driftmark</h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>9.1/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>As the families gather on Driftmark for a funeral, Viserys calls for an end to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;infighting, and Alicent demands justice.</p>
+            </div>
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/5kPtWeuUamY?si=LVq3UVQHNRjJqGjo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>        
+        </div>
+        <!--8-->
+        <div class="each_episode">
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hZhmEjHVpjY?si=i28KywxgodHgx1CN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning"></i>Episode 8 &#11049; The Lord of the Tides</h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>9.3/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>Viserys, ill and delirious, mistakes his wife Alicent for his daughter Rhaenyra; he &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appeals to his family to settle their differences for the good of the kingdom; Alicent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has to deal with a crime in the house.</p>
+            </div>        
+        </div>
+        <!--9-->
+        <div class="each_episode">
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning"></i>Episode 9 &#11049; The Green Council</h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>8.7/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>Tensions begin to rise in the royal court as the new coronation draws near; while &nbsp;&nbsp;&nbsp;Alicent enlists Cole and Aemond to track down Aegon, Otto gathers the great &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;houses of Westeros to affirm their allegiance.</p>
+            </div>
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ytlDqSWO8QI?si=VpT9PKnDbSFb2lzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>        
+        </div>
+        <!--10-->
+        <div class="each_episode">
+            <div class="episode_trailer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cXseQNtkDYU?si=FyNE-BjN_TZt4R-q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div> 
+            <div class="episode_description mb-5">
+                <h3><i class="fa-solid fa-dragon me-2 fs-7 mb-2 text-warning"></i>Episode 10 &#11049;  The Black Queen</h3>
+                <h5><i class="fa-solid fa-star me-2 text-warning"></i>9.2/10</h5>
+                <p><i class="fa-brands fa-gripfire me-2 fs-4 text-warning"></i>Rhaenyra tries to hold the realm together as the tension rises following a tragic &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loss. Meanwhile, Daemon prepares for war.</p>
+            </div>       
+        </div>
+   </div>
+</body>
+<footer>
+    <ul class="foot_nav">
+        <li><a href="https://www.facebook.com/houseofthedragon" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href="https://twitter.com/HOTDNewsHBO" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li><a href="https://www.tiktok.com/@hbo" target="_blank"><i class="fa-brands fa-tiktok"></i></a></li>
+        <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="hbo.com/house-of-the-dragon/official-guide"><i class="fa-solid fa-globe"></i></a></li>
+    </ul>
+</footer>
+</html>
